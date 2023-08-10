@@ -1,19 +1,33 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 /**
- * main - check the code for ALX SE students.
+ * _calloc - allocates memory for an array
+ * @nmemb: first input parameter
+ * @size: second input parameter
  *
- * Return: Always 0.
+ * Return: pointer
  */
 
-int main(void)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *concat;
+	char *pointer;
+	unsigned int i;
 
-	concat = string_nconcat("Best ", "School !!!", 6);
-	printf("%s\n", concat);
-	free(concat);
-	return (0);
+	if (!nmemb || !size)
+	{
+		return (NULL);
+	}
+	pointer = malloc(nmemb * size);
+	if (!pointer)
+	{
+		return (NULL);
+	}
+	for (i = 0; i < (nmemb * size); i++)
+	{
+		*(pointer + i) = 0;
+	}
+	return (pointer);
 }
