@@ -1,1 +1,1 @@
-static libraries
+singly liked list
