@@ -59,25 +59,14 @@ int _strlen(char *s)
  * Return: copied string
  */
 
-char *_strdup(char *str)
+void free_dog(dog_t *d)
 {
-	int i, len;
-	char *copy;
-
-	if (!str)
+	if (d)
 	{
-		return (NULL);
+		if (d->name)
+			free(d->name);
+		if (d->owner)
+			free(d->owner);
+		free(d);
 	}
-	len = _strlen(str);
-	copy = malloc(sizeof(char) * len + 1);
-	if (!copy)
-	{
-		return (NULL);
-	}
-	for (i = 0; i < len; i++)
-	{
-		copy[i] = str[i];
-	}
-	copy[i] = 0;
-	return (copy);
 }
